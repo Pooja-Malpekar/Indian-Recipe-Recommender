@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommended Recipes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff8f0;
+            padding: 30px;
+        }
+        .recipe {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.08);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #ff5722;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 16px;
+            background-color: #ccc;
+            border-radius: 5px;
+            text-decoration: none;
+            color: black;
+        }
+        .back-btn:hover {
+            background-color: #bbb;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="/" class="back-btn">← Back to Search</a>
+    <h2>Top Recommended Recipes</h2>
+
+    {% for recipe in recipes %}
+    <div class="recipe">
+        <h3>{{ recipe.RecipeName }}</h3>
+        <p><strong>Ingredients:</strong> {{ recipe.Ingredients }}</p>
+        <p><strong>Instructions:</strong> {{ recipe.Instructions }}</p>
+        <p><strong>Total Time:</strong> {{ recipe.TotalTime }} mins</p>
+    </div>
+    {% endfor %}
+
+    {% if recipes|length == 0 %}
+        <p>No recipes matched your criteria.</p>
+    {% endif %}
+
+</body>
+</html>
