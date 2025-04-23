@@ -24,7 +24,7 @@ A content-based recipe recommendation system built using Flask, Pandas, and Scik
 
 ## 🚀 Demo
 
-👉 Live URL: _[coming soon after Render deployment]_
+👉 Live URL: https://indian-recipe-recommender.onrender.com
 
 
 ## ▶️ Run Locally
