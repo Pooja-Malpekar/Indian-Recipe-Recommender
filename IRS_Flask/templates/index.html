@@ -7,7 +7,9 @@
       body {
         font-family: Arial, sans-serif;
         background-color: #f8f6f2;
-        margin: 50px;
+        margin: 100px 50px 100px 50px; /* Added top margin for header */
+        position: relative;
+        min-height: 100vh;
       }
       .container {
         max-width: 600px;
@@ -16,6 +18,8 @@
         margin: auto;
         border-radius: 12px;
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 120px; /* Space for footer */
+        margin-top: 120px; /* Space for header */
       }
       label {
         font-weight: bold;
@@ -42,9 +46,155 @@
       button:hover {
         background-color: #e64a19;
       }
+      
+      /* Header styles */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background-color: #ffecb3;
+        border-bottom: 3px solid #ffb74d;
+        overflow: hidden;
+        z-index: 100;
+      }
+      
+      .dancing-fruits {
+        text-align: center;
+        margin-top: 20px;
+      }
+      
+      .fruit {
+        display: inline-block;
+        font-size: 30px;
+        margin: 0 15px;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+      }
+      
+      .apple {
+        animation-name: dance1;
+      }
+      
+      .banana {
+        animation-name: dance2;
+        animation-delay: 0.3s;
+      }
+      
+      .orange {
+        animation-name: dance1;
+        animation-delay: 0.6s;
+      }
+      
+      .mango {
+        animation-name: dance2;
+        animation-delay: 0.9s;
+      }
+      
+      .pineapple {
+        animation-name: dance1;
+        animation-delay: 1.2s;
+      }
+      
+      @keyframes dance1 {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        25% { transform: translateY(-15px) rotate(5deg); }
+        50% { transform: translateY(0) rotate(0deg); }
+        75% { transform: translateY(-15px) rotate(-5deg); }
+      }
+      
+      @keyframes dance2 {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        25% { transform: translateY(-15px) rotate(-5deg); }
+        50% { transform: translateY(0) rotate(0deg); }
+        75% { transform: translateY(-15px) rotate(5deg); }
+      }
+      
+      /* Footer and animation styles */
+      .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background-color: #ffecb3;
+        border-top: 3px solid #ffb74d;
+        overflow: hidden;
+      }
+      
+      .walking-path {
+        position: relative;
+        width: 100%;
+        height: 60px;
+        margin-top: 20px;
+      }
+      
+      /* Vegetables */
+      .vegetable {
+        position: absolute;
+        bottom: 0;
+        font-size: 30px;
+        animation-duration: 15s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+      
+      .tomato {
+        animation-name: walkLeft;
+        left: 100%;
+      }
+      
+      .onion {
+        animation-name: walkRight;
+        left: -40px;
+        animation-delay: 2s;
+      }
+      
+      .chili {
+        animation-name: walkLeft;
+        left: 100%;
+        animation-delay: 5s;
+      }
+      
+      .eggplant {
+        animation-name: walkRight;
+        left: -40px;
+        animation-delay: 7s;
+      }
+      
+      .potato {
+        animation-name: walkLeft;
+        left: 100%;
+        animation-delay: 3s;
+      }
+      
+      /* Walking animations */
+      @keyframes walkLeft {
+        0% { left: 100%; transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { left: -40px; transform: translateY(0px); }
+      }
+      
+      @keyframes walkRight {
+        0% { left: -40px; transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { left: 100%; transform: translateY(0px); }
+      }
     </style>
   </head>
   <body>
+    <!-- Animated Header with Dancing Fruits -->
+    <div class="header">
+      <div class="dancing-fruits">
+        <span class="fruit apple">🍎</span>
+        <span class="fruit banana">🍌</span>
+        <span class="fruit orange">🍊</span>
+        <span class="fruit mango">🥭</span>
+        <span class="fruit pineapple">🍍</span>
+      </div>
+    </div>
+    
     <div class="container">
       <h2>Indian Recipe Recommender</h2>
       <form action="/recommend" method="POST">
@@ -154,6 +304,17 @@
 
         <button type="submit">Find Recipes</button>
       </form>
+    </div>
+    
+    <!-- Animated Footer with Walking Vegetables -->
+    <div class="footer">
+      <div class="walking-path">
+        <div class="vegetable tomato">🍅</div>
+        <div class="vegetable onion">🧅</div>
+        <div class="vegetable chili">🌶️</div>
+        <div class="vegetable eggplant">🍆</div>
+        <div class="vegetable potato">🥔</div>
+      </div>
     </div>
   </body>
 </html>
